@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const todoRouter = require("./routes/todoRouter");
 const dotenv = require("dotenv");
+const path = require("path");
 const cors = require("cors");
 dotenv.config();
 
@@ -24,10 +25,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //setting primary routes
 app.use("/todos", todoRouter);
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, "./client", "./client/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.sendFile(
+    path.join(__dirname, "./client", "./client/build", "index.html")
+  );
 });
 // Establishing connection with db
 mongoose
