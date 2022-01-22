@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-const api_base = "http://localhost:5000/todos";
+const api_base = "https://mern-todo-app-server.herokuapp.com/todos";
 
 function App() {
   const [todos, setTodos] = useState([]);
